@@ -16,7 +16,7 @@ export default function HomeStack(props: DefaultRouterOptions) {
             component={HomeScreen}
             name='dimension_home'
             options={{
-                title: "List de dimensionement"
+                title: "Liste de dimensionement"
             }}
         />
         <Stack.Screen

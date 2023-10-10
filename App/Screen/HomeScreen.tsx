@@ -87,7 +87,7 @@ export function HomeScreen(props: any) {
                     onChangeText={txt => setDimension({ ...dimesion, autonomie: parseInt(txt) })}
 
                 />
-                <Pressable
+                {/* <Pressable
                     onPress={toggleCheck}
                     style={{
                         flexDirection: 'row',
@@ -97,7 +97,7 @@ export function HomeScreen(props: any) {
                     }}>
                     <Checkbox status={checked} />
                     <Text>Sans Batterie</Text>
-                </Pressable>
+                </Pressable> */}
                 <Button style={{
                     marginLeft: 0
                 }}

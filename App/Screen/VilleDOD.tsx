@@ -1,7 +1,7 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native'
 import DropdownSelect from 'react-native-input-select';
-import { Card } from 'react-native-paper';
+import { Card, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../Store/store';
 import { DiemsionType, updateDimension } from '../Store/dimensionsSlice';
@@ -9,35 +9,40 @@ import { Button } from 'galio-framework';
 import Octicons from 'react-native-vector-icons/Octicons'
 
 
-export default function VilleDOD(props:any) {
+export default function VilleDOD(props: any) {
     const currentId = useSelector((st: RootState) => st.currentId)
     const dispatch = useDispatch()
     const dimensions = useSelector((st: RootState) => st.dimensions)
     const [dimension, setDimension] = useState<DiemsionType>(dimensions.filter(el => el.id == currentId)[0])
-    
-    const next = ()=>{
-       dispatch(updateDimension(dimension))
-       props.navigation.navigate('dimension_ad_device')
+
+    const next = () => {
+        dispatch(updateDimension(dimension))
+        props.navigation.navigate('dimension_ad_device')
     }
-    
+
     return <View style={{ flex: 1 }}>
         <Card style={{
-                paddingHorizontal: 20,
-                paddingVertical: 20,
-                marginHorizontal:20,
-                zIndex: 1,
-                marginTop:20
-            }}>
+            paddingHorizontal: 20,
+            paddingVertical: 20,
+            marginHorizontal: 20,
+            zIndex: 1,
+            marginTop: 20
+        }}>
             <DropdownSelect
                 label="Ville"
                 placeholder="Selectioner une ville"
                 options={[
                     { label: "N'Djamena", value: 4.7 },
                     { label: "Sarh", value: 3 },
-                    { label: "Abeche", value: 5 },
+                    { label: "Abeche", value: 6 },
+                    { label: "Koumra", value: 3 },
+                    { label: "Doba", value: 3.5 },
+                    { label: "Ati", value: 5.5 },
+                    { label: "Mongo", value: 5.7 },
+                    { label: "Faya", value: 6.5 },
                 ]}
                 selectedValue={dimension?.ensoleillement}
-                onValueChange={(value: any) => {setDimension({...dimension,ensoleillement:value})}}
+                onValueChange={(value: any) => { setDimension({ ...dimension, ensoleillement: value }) }}
                 primaryColor={'green'}
             />
             <DropdownSelect
@@ -50,8 +55,16 @@ export default function VilleDOD(props:any) {
                     { label: "50", value: .50 },
                 ]}
                 selectedValue={dimension?.dod}
-                onValueChange={(value: any) => {setDimension({...dimension,dod:value})}}
+                onValueChange={(value: any) => { setDimension({ ...dimension, dod: value }) }}
                 primaryColor={'green'}
+            />
+            <TextInput
+                label='Autonomie desirée en Jour'
+                mode='outlined'
+                keyboardType='number-pad'
+                value={dimension?.autonomie?.toString()}
+                onChangeText={txt => setDimension({ ...dimension, autonomie: parseInt(txt) })}
+
             />
         </Card>
         <View style={{
@@ -76,7 +89,7 @@ export default function VilleDOD(props:any) {
             >
                 <Octicons name='arrow-left' color='#fff' size={28} />
             </Button>
-          
+
             <Button
                 round
                 onPress={() => next()}
