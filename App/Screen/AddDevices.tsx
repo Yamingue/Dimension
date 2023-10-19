@@ -1,6 +1,6 @@
 import { Button } from 'galio-framework'
 import React, { useState } from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, View, Alert } from 'react-native'
 import { Title, TextInput, Modal, Card } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../Store/store'
@@ -24,7 +24,6 @@ export default function (props: any) {
         puissance: 10,
         tension: "DC"
     })
-    console.log(currentId);
 
     return <View style={{ flex: 1 }}>
         <Title style={{
@@ -75,7 +74,17 @@ export default function (props: any) {
 
             <Button
                 round
-                onPress={() => props.navigation.navigate('batt_paneau')}
+                onPress={() => {
+                    if (dimension[0].appareils?.length != 0) {
+                        props.navigation.navigate('batt_paneau')
+
+                    } else {
+                        Alert.alert('Erreur', 'Veiller ajouter au moins un appareil', [
+
+                            { text: 'OK', onPress: () => console.log('OK Pressed') },
+                        ]);
+                    }
+                }}
                 style={{
                     width: 45,
                     height: 45,
@@ -111,7 +120,7 @@ export default function (props: any) {
                     onChangeText={txt => {
                         if (txt == '') {
                             setAppareilForm({ ...appareilForm, puissance: 0 })
-                        }else{
+                        } else {
                             setAppareilForm({ ...appareilForm, puissance: parseInt(txt) })
                         }
                     }}
@@ -123,10 +132,10 @@ export default function (props: any) {
                     mode='outlined'
                     keyboardType='number-pad'
                     value={appareilForm.temps.toString()}
-                    onChangeText={txt =>{
+                    onChangeText={txt => {
                         if (txt == '') {
                             setAppareilForm({ ...appareilForm, temps: 0 })
-                        }else{
+                        } else {
                             setAppareilForm({ ...appareilForm, temps: parseInt(txt) })
                         }
                     }}
