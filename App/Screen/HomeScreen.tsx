@@ -1,7 +1,7 @@
 import { Button } from 'galio-framework';
 import React, { useState } from 'react'
-import { Pressable, ScrollView, View } from "react-native";
-import { Card, Checkbox, Modal, Text, TextInput } from 'react-native-paper';
+import { ScrollView, View } from "react-native";
+import { Card, Modal, TextInput } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../Store/store';
 import { DiemsionType, addDimension } from '../Store/dimensionsSlice';
