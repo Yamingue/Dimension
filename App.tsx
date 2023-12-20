@@ -6,8 +6,7 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
-import type { PropsWithChildren } from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BottomNavigation } from './App/Navigators/BottomNavigation';
@@ -16,12 +15,16 @@ import { Provider } from 'react-redux';
 import { store } from './App/Store/store';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
+import BootSplash from "react-native-bootsplash";
 
 let persistor = persistStore(store)
 
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  useEffect(() => {
+    BootSplash.hide({ fade: true });
+  }, [])
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

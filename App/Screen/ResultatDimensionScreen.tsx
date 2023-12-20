@@ -53,7 +53,7 @@ export default function ResultatDimensionScreen(props: any) {
                 <Card.Content>
                     <Text>Nombre des panneau en serie: {Calcul.getPanneauSerie()}</Text>
                     <Text>Nombre des panneau en parallele: {Calcul.getPanneauParallele()}</Text>
-                    <Text>Puissance Total Peanneaux: {Calcul.getPuissancePanneau()}</Text>
+                    <Text>Puissance Total Peanneaux: {Calcul.getPuissancePanneau()}Wc</Text>
                     <Text>Tension  panneau: {Calcul.dimension?.tension_panneau}V</Text>
                     <Text>Puissance  panneau: {Calcul.dimension?.puissance_panneau}w</Text>
                     <Text>Nombre total des panneaux: {Calcul.getTotalPanneau()}</Text>
