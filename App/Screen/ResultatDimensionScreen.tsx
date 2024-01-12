@@ -37,9 +37,9 @@ export default function ResultatDimensionScreen(props: any) {
                     left={(props) => <AntDesign {...props} name='calculator' />}
                 />
                 <Card.Content>
-                    <Text>Puiisance Total du des Charges: {Calcul.getPuissanceTotal()}W</Text>
-                    <Text>Puiisance Total du des Charges AC: {Calcul.getPuissanceTotalAC()}W</Text>
-                    <Text>Puiisance Total du des Charges DC: {Calcul.getPuissanceTotalDC()}W</Text>
+                    <Text>Puisance Total des Charges: {Calcul.getPuissanceTotal()}W</Text>
+                    <Text>Puisance Total des Charges AC: {Calcul.getPuissanceTotalAC()}W</Text>
+                    <Text>Puisance Total des Charges DC: {Calcul.getPuissanceTotalDC()}W</Text>
                     <Text>Energie Total: {Calcul.getEnergieTotal()}WH</Text>
                     <Text>Autonomie: {Calcul?.dimension?.autonomie} Jour(s)</Text>
                     <Text>DOD: {Calcul?.dimension?.dod * 100}%</Text>
@@ -51,12 +51,12 @@ export default function ResultatDimensionScreen(props: any) {
                     left={(props) => <MaterialIcons {...props} name='solar-power' />}
                 />
                 <Card.Content>
+                    <Text>Nombre total des panneaux: {Calcul.getTotalPanneau()}</Text>
                     <Text>Nombre des panneau en serie: {Calcul.getPanneauSerie()}</Text>
                     <Text>Nombre des panneau en parallele: {Calcul.getPanneauParallele()}</Text>
                     <Text>Puissance Total Peanneaux: {Calcul.getPuissancePanneau()}Wc</Text>
                     <Text>Tension  panneau: {Calcul.dimension?.tension_panneau}V</Text>
                     <Text>Puissance  panneau: {Calcul.dimension?.puissance_panneau}w</Text>
-                    <Text>Nombre total des panneaux: {Calcul.getTotalPanneau()}</Text>
 
                 </Card.Content>
             </Card>
@@ -66,7 +66,7 @@ export default function ResultatDimensionScreen(props: any) {
                     left={(props) => <FontAwesome5 {...props} name='car-battery' />}
                 />
                 <Card.Content>
-                    <Text>Capacité totale des batteries: {Calcul.getBatterieCapacite()}AH</Text>
+                    {/* <Text>Capacité totale des batteries: {Calcul.getBatterieCapacite()}AH</Text> */}
                     <Text>Tension Batterie: {Calcul.dimension?.tension_batterie}V</Text>
                     <Text>Capacité Batterie: {Calcul.dimension?.capacite_batterie}AH</Text>
                     <Text>Nombre des batteries: {Calcul.getTotalBatterie()}</Text>

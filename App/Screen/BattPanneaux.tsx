@@ -77,7 +77,7 @@ export default function BattPanneaux(props: any) {
                 />
                 <DropdownSelect
                     label="Panneau"
-                    placeholder="Selectioner une panneau"
+                    placeholder="Selectioner un panneau"
                     selectedValue={panneauIndex}
                     options={[
                         { label: "12v/50w", value: 1, puissance: 50, tension: 12 },
@@ -144,6 +144,6 @@ export default function BattPanneaux(props: any) {
                 <Octicons name='arrow-right' color='#fff' size={38} />
             </Button>
         </View>
-        
+
     </View>
 }
